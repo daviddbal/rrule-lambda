@@ -19,12 +19,12 @@ public class ConnectionHelper {
 				Class.forName("com.mysql.jdbc.Driver");
             	ResourceBundle bundle = ResourceBundle.getBundle("net/balsoftware/util/db");
             	// TODO - replace with Environment variables
-                String url = bundle.getString("url");
-                String user = bundle.getString("user");
-                String password = bundle.getString("password");
-//	            String url = "jdbc:mysql://localhost:3306/rrule";
-//	            String user = "root";
-//	            String password = "skywalker";
+//                String url = bundle.getString("url");
+//                String user = bundle.getString("user");
+//                String password = bundle.getString("password");
+	            String url = "jdbc:mysql://localhost:3306/rrule";
+	            String user = "root";
+	            String password = "skywalker";
 				connection =  DriverManager.getConnection(url, user, password);
 	//			return DriverManager.getConnection(instance.url);
 			} catch (SQLException e) {

@@ -15,7 +15,7 @@ repositories {
 dependencies {
     compile group: 'com.amazonaws', name: 'aws-lambda-java-events', version:'+'
     compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version:'+'
-    compile group: 'org.jfxtras', name: 'jfxtras-icalendarfx', version: '+'
+    compile group: 'org.jfxtras', name: 'jfxtras-icalendarfx', version: '8.0-r6'
 // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '+'
     testCompile group: 'junit', name: 'junit', version:'4.12'
