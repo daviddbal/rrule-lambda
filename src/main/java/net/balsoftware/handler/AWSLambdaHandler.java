@@ -67,7 +67,17 @@ public class AWSLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
     		{
     			recurrences = "Invalid";
     		}
-            response.setHeaders(Collections.singletonMap("Content-Type", "text/plain"));
+    		Map<String, String> headers = new HashMap<>();
+    		headers.put("Content-Type", "text/plain");
+    		headers.put("Access-Control-Allow-Origin", "*");
+    		headers.put("Access-Control-Allow-Credentials", "true");
+    		headers.put("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    		headers.put("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+//    		headers.put("Access-Control-Allow-Origin", "*");
+    		headers.put("X-Requested-With", "*");
+//    		headers.put("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+//    		headers.put("Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,x-requested-with");
+            response.setHeaders(headers);
             response.setStatusCode(200);
             response.setBody(recurrences);
 
