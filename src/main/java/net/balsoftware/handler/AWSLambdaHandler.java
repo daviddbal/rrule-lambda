@@ -14,6 +14,8 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 
+import jfxtras.icalendarfx.properties.component.time.DateTimeStart;
+
 public class AWSLambdaHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     @Override
@@ -24,6 +26,9 @@ public class AWSLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
 
         JSONParser parser = new JSONParser();
 
+        String rruleContent;
+        int maxRecurrences;
+        DateTimeStart dateTimeStart;
         String name = "you";
         String city = "World";
         String time = "day";
@@ -36,6 +41,15 @@ public class AWSLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
             if (qps != null) {
                 if (qps.get("name") != null) {
                     name = qps.get("name");
+                }
+                if (qps.get("rrule") != null) {
+                    rruleContent = qps.get("rrule");
+                }
+                if (qps.get("maxRecurrences") != null) {
+                    maxRecurrences = Integer.parseInt(qps.get("maxRecurrences"));
+                }
+                if (qps.get("dtstart") != null) {
+                	dateTimeStart = DateTimeStart.parse(qps.get("dtstart"));
                 }
             }
             Map<String, String> pps = event.getPathParameters();
