@@ -89,8 +89,9 @@ public class AWSLambdaHandler implements RequestHandler<APIGatewayProxyRequestEv
 		{
 			if ((ipAddress != null) && ! ipAddress.equals("null"))
 			{
-				RRule r = new RRule(rruleContent, dtstartContent, maxRecurrences, ipAddress);
-				service.addRRule(r);
+				// AWS gets Loading Java Lambda handler of Proxyjava.sql.SQLSyntaxErrorException: INSERT command denied to user 'djmagicc_rruleus'@'ec2-54-218-126-187.us-west-2.compute.amazonaws.com' for table 'history'
+//				RRule r = new RRule(rruleContent, dtstartContent, maxRecurrences, ipAddress);
+//				service.addRRule(r);
 			}
 		} catch (Exception e)
 		{
